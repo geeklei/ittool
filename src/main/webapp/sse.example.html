@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>sse demo</title>
+</head>
+<body>
+<h1>获得服务器信息</h1>
+<div id="result"></div>
+<script type="text/javascript">
+if(typeof(EventSource)!=="undefined")
+{
+	var source=new EventSource("service/sse");
+	
+/* 	//只要和服务器连接，就会触发open事件
+    source.addEventListener("open",function(){
+       console.log("和服务器建立连接");
+    });
+
+    //处理服务器响应报文中的load事件
+    source.addEventListener("load",function(e){
+        console.log("服务器发送给客户端的数据为:" + e.data);
+    });
+
+    //如果服务器响应报文中没有指明事件，默认触发message事件
+    source.addEventListener("message",function(e){
+        console.log("服务器发送给客户端的数据为:" + e.data);
+    });
+
+    //发生错误，则会触发error事件
+    source.addEventListener("error",function(e){
+        console.log("服务器发送给客户端的数据为:" + e.data);
+    }); */
+
+	
+	source.onmessage=function(event){
+	  document.getElementById("result").innerHTML+=event.data + "<br />";
+	};
+}
+else
+{
+	document.getElementById("result").innerHTML="抱歉，您的浏览器不支持 server-sent 事件 ...";
+}	
+</script>
+</body>
+</html>

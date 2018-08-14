@@ -1,0 +1,64 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<display-name>Archetype Created Web Application</display-name>
+	<servlet>
+		<servlet-name>ping</servlet-name>
+		<servlet-class>com.ittool.servlet.PingServlet</servlet-class>
+	</servlet>
+
+<!-- 	<servlet>
+		<servlet-name>telnet</servlet-name>
+		<servlet-class>com.ittool.servlet.TelnetServlet</servlet-class>
+	</servlet> -->
+
+	<servlet>
+		<servlet-name>sse</servlet-name>
+		<servlet-class>com.ittool.servlet.SseServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>NiVerify</servlet-name>
+		<servlet-class>com.ittool.servlet.NiVerifyServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>pattern</servlet-name>
+		<servlet-class>com.ittool.servlet.PatternServlet</servlet-class>
+	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>ping</servlet-name>
+		<url-pattern>/service/ping</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>NiVerify</servlet-name>
+		<url-pattern>/service/nv</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>sse</servlet-name>
+		<url-pattern>/service/sse</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>pattern</servlet-name>
+		<url-pattern>/service/exp</url-pattern>
+	</servlet-mapping>
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/404.html</location>
+	</error-page>
+
+	<error-page>
+		<error-code>500</error-code>
+		<location>/500.html</location>
+	</error-page>
+	
+	<welcome-file-list>
+		index.jsp
+	</welcome-file-list>
+</web-app>
