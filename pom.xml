@@ -1,0 +1,62 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.it</groupId>
+  <artifactId>ittool</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>ittool Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+	<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>javax.servlet-api</artifactId>
+	    <version>3.1.0</version>
+	    <scope>provided</scope>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/javax.websocket/javax.websocket-api -->
+	<dependency>
+	    <groupId>javax.websocket</groupId>
+	    <artifactId>javax.websocket-api</artifactId>
+	    <version>1.0</version>
+	    <scope>provided</scope>
+	</dependency>
+    
+    
+    <dependency>
+    	<groupId>com.eudp.airtravel</groupId>
+      	<artifactId>eudp-airtravel-util</artifactId>
+      	<version>0.0.1</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>tools</finalName>
+        <!-- directory缺省情况下指向target --> 
+       <!--  <directory>${basedir}/target</directory> -->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <url>http://localhost:8080/manager/html</url>
+                    <!-- server、username、password对应maven的setting下的配置 -->
+                    <server>tomcat</server>
+                    <username>root</username>
+                    <password>root</password>
+                    <path>/${project.build.finalName}</path>
+                    <!-- war文件路径缺省情况下指向target -->
+                    <!-- <warFile>${basedir}/target/${project.build.finalName}.war</warFile> -->
+                </configuration>
+            </plugin>
+        </plugins>    
+  </build>
+</project>
